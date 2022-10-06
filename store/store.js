@@ -3,12 +3,11 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createWrapper } from "next-redux-wrapper";
 import { userReducer } from "./test/testReducer";
-import {AnimeReducer} from './anime/animeReducer'
+import { AnimeReducer } from "./anime/animeReducer";
 
 const reducer = combineReducers({
   user: userReducer,
-  anime:AnimeReducer
-  
+  anime: AnimeReducer,
 });
 
 // convert object to string and store in localStorage
