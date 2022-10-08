@@ -18,7 +18,8 @@ import {
   SEARCHANIME,
   SEARCHLODER,
   GENERCE,
-  TOPAIRLOADING
+  TOPAIRLOADING,
+  TOPAIR
 } from "./animeConstant";
 import Swal from "sweetalert2";
 
@@ -65,7 +66,8 @@ export const topAirActionPagewise = (page) => async (dispatch) => {
     dispatch({
       type: LOADING,
     });
-    let res = await axios.get(`/top-airing/${page}`);
+    let res = await axios.get(`/top-airing?page=${page}`);
+    console.log('qq',res.data)
     dispatch({
       type: TOPAIR,
       payload: res.data,

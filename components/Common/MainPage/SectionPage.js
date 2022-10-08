@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { topAirAction } from "../../../store/anime/animeaction";
-
+import { useRouter } from 'next/router'
 const SectionPage = () => {
+  const router = useRouter()
   const dispatch = useDispatch();
   const selector = useSelector((pre) => pre.anime);
   const [data, setData] = useState([]);
@@ -89,7 +90,9 @@ const SectionPage = () => {
 
           <div className="mt-6 grid grid-cols-1  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
             {data.map((product) => (
-              <div key={product.id} className="group relative">
+              <div key={product.id} className="group relative" 
+             
+              >
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-[70%] overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                   <img
                     src={product.animeImg}
@@ -105,9 +108,9 @@ const SectionPage = () => {
                         {product.animeTitle}
                       </a>
                     </h3>
-                    <p className="mt-1 text-sm text-gray-500">
+                    {/* <p className="mt-1 text-sm text-gray-500">
                       {product.latestEp}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -115,7 +118,9 @@ const SectionPage = () => {
           </div>
 
           <div class="flex justify-end	 mr-[10px]">
-            <div class="flex-none w-34 h-14 cursor-pointer	text-cyan-500	font-semibold	hover:text-amber-600">
+            <div class="flex-none w-34 h-14 cursor-pointer	text-cyan-500	font-semibold	hover:text-amber-600" onClick={()=>{
+                router.push(`/episode/topair`)
+              }}>
               View More
             </div>
           </div>

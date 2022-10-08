@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { moviesTen } from "../../../store/anime/animeaction";
+import { useRouter } from 'next/router'
 
 const SectionPage = () => {
   const dispatch = useDispatch();
   const selector = useSelector((pre) => pre.anime);
   const [data, setData] = useState([]);
+  const router = useRouter()
 
   let demoEpisdoe = [
     {
@@ -83,7 +85,10 @@ const SectionPage = () => {
           </div>
 
           <div class="flex justify-end	 mr-[10px]">
-            <div class="flex-none w-34 h-14 cursor-pointer	text-cyan-500	font-semibold	hover:text-amber-600">
+            <div class="flex-none w-34 h-14 cursor-pointer	text-cyan-500	font-semibold	hover:text-amber-600" onClick={()=>{
+                  router.push('/episode/movie')
+
+            }}>
               View More
             </div>
           </div>

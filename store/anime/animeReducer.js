@@ -45,7 +45,6 @@ const initialState = {
 
 export const AnimeReducer = (state = initialState, action) => {
   const { type, payload } = action;
-
   switch (type) {
     case LOADING:
       return {
