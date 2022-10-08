@@ -1,43 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { topAirAction } from "../../../store/anime/animeaction";
+import { popularTen } from "../../../store/anime/animeaction";
 
 const SectionPage = () => {
   const dispatch = useDispatch();
   const selector = useSelector((pre) => pre.anime);
   const [data, setData] = useState([]);
-  const products = [
-    {
-      id: 1,
-      name: "Basic Tee",
-      href: "#",
-      imageSrc:
-        "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "$35",
-      color: "Black",
-    },
-    {
-      id: 1,
-      name: "Basic Tee",
-      href: "#",
-      imageSrc:
-        "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "$35",
-      color: "Black",
-    },
-    {
-      id: 1,
-      name: "Basic Tee",
-      href: "#",
-      imageSrc:
-        "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "$35",
-      color: "Black",
-    },
-  ];
+
 
   let demoEpisdoe = [
     {
@@ -73,18 +42,18 @@ const SectionPage = () => {
   ];
 
   useEffect(() => {
-    dispatch(topAirAction());
+    dispatch(popularTen());
   }, []);
 
   useEffect(() => {
-    setData(selector.AirThree || demoEpisdoe);
+    setData(selector.popularten || demoEpisdoe);
   }, [selector]);
   return (
     <>
       <div className="bg-white pt-[30px]  border-yellow-500 rounded-lg	 border-2 bg-slate-700 ">
         <div className="mx-auto max-w-2xl    lg:max-w-7xl 	 ">
           <h2 className="text-2xl font-bold tracking-tight text-slate-100	 pt-[10px] pl-[13px] pb-[10px] bg-yellow-600 rounded-lg">
-            Top-Air Anime
+            Popular Anime
           </h2>
 
           <div className="mt-6 grid grid-cols-1  ml-[65px] gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-5">
@@ -106,7 +75,8 @@ const SectionPage = () => {
                       </a>
                     </h3>
                     <p className="mt-1 text-sm text-gray-500">
-                      {product.latestEp}
+                      {product.releasedDate
+}
                     </p>
                   </div>
                 </div>

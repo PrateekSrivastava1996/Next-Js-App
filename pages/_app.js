@@ -4,6 +4,7 @@ import { wrapper, store } from "../store/store";
 import { Provider } from "react-redux";
 import Theme from "../utils/theme";
 import { Navbar ,Footer } from "../components/Common/index";
+import 'antd/dist/antd.css';
 //import { Navbar, Footer } from "@components/Common";
 
 function MyApp({ Component, pageProps }) {
